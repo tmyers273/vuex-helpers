@@ -6,7 +6,7 @@ export default function(config) {
 
             create(store, data) {
                 return new Promise((resolve, reject) => {
-                    Vue.http.post(config.create.url, data).then(response => {
+                    config.http.post(config.create.url, data).then(response => {
                         store.commit('push', response.body.data);
                         resolve(response);
                     }, response => {
@@ -17,7 +17,7 @@ export default function(config) {
 
             edit(store, data) {
                 return new Promise((resolve, reject) => {
-                    Vue.http.post(config.edit.url, data).then(response => {
+                    config.http.post(config.edit.url, data).then(response => {
                         resolve(response);
                     }, response => {
                         reject(response);
@@ -28,7 +28,7 @@ export default function(config) {
             load(store) {
                 if (! store.getters.hasData) {
                     store.commit('loading', true);
-                    Vue.http.get(config.load.url).then(response => {
+                    config.http.get(config.load.url).then(response => {
                         store.commit('save', response.body);
                         store.commit('loading', false);
                         store.commit('hasData', true);
@@ -40,7 +40,7 @@ export default function(config) {
 
             delete(store, id) {
                 return new Promise((resolve, reject) => {
-                    Vue.http.post(config.destroy.url, config.destroy.params(id)).then(response => {
+                    config.http.post(config.destroy.url, config.destroy.params(id)).then(response => {
                         store.commit('destroy', id);
                         resolve(response);
                     }).catch(response => {
