@@ -1,0 +1,10 @@
+{
+    "name": "tmyers273.vuex-table-store",
+    "description": "Vuex helper functions",
+    "version": "1.0.0",
+    "author": "tmyers273",
+    "main": "dist/index.js",
+    "peerDependencies": {
+        "vue": "^2.2.6"
+    }
+}
