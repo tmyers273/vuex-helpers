@@ -7,7 +7,7 @@ export default function(config) {
             create(store, data) {
                 return new Promise((resolve, reject) => {
                     config.http.post(config.create.url, data).then(response => {
-                        store.commit('push', response.body.data);
+                        store.commit('push', config.getResponseData(response).data);
                         resolve(response);
                     }, response => {
                         reject(response);
@@ -29,7 +29,7 @@ export default function(config) {
                 if (! store.getters.hasData) {
                     store.commit('loading', true);
                     config.http.get(config.load.url).then(response => {
-                        store.commit('save', response.body);
+                        store.commit('save', config.getResponseData(response));
                         store.commit('loading', false);
                         store.commit('hasData', true);
                     }, response => {

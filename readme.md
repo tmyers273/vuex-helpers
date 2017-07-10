@@ -16,6 +16,7 @@ Config values are passed as an object to the VuexHelpers constructor.
 * `http` axios object
 * `default` is the object to use when creating a new object. This serves as the
 starting point in forms and allows you to provide default values
+* `getResponseData` method to return JSON object from response
 * `create.url` is the url to `POST` to when creating
 * `edit.url` is the url to `POST` to when editing
 * `destroy.url` is the url to `POST` to when deleting
@@ -29,6 +30,9 @@ let config = {
          name: null,
          email: null,
          location: 'US',
+     },
+     getResponseData(response) {
+        return response.data;
      },
      create: {
          url: 'codeFeeder/add_new_campaign'
