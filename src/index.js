@@ -51,6 +51,7 @@ export default function(config) {
         },
 
         getters: {
+
             count(state) {
                 return state.count;
             },
@@ -92,6 +93,7 @@ export default function(config) {
             destroy: (state, id) => {
                 let index = state.elements.findIndex(element => element.id == id);
                 state.elements.splice(index, 1);
+                state.count--;
             },
 
             edit: (state, new_element) => {
