@@ -2,6 +2,16 @@
 
 A series of helper functions for typical vuex use cases
 
+### Installation
+
+```
+// Package.json
+devDependencies: {
+    ...
+    "tmyers273.vuex-helpers": "git+https://git@github.com/tmyers273/vuex-helpers.git",
+}
+```
+
 # Usage
 
 Currently, this only supports loading ALL data at once in a single AJAX call.
