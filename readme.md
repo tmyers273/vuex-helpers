@@ -23,7 +23,7 @@ Supports the normal CRUD commands, as well as provides getters for pagination.
 
 Config values are passed as an object to the VuexHelpers constructor.
 
-* `http` axios object
+* `http` function that returns axios or VueResource object
 * `default` is the object to use when creating a new object. This serves as the
 starting point in forms and allows you to provide default values
 * `getResponseData` method to return JSON object from response
